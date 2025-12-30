@@ -1,65 +1,329 @@
-import Image from "next/image";
+"use client";
+
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Certifications from "@/components/Certifications";
+import Projects from "@/components/Projects";
+import Footer from "@/components/Footer";
+import Contact from "@/components/Kontak";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+  const { scrollYProgress } = useScroll();
+  
+  // Logic Mouse Tracking Global
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { damping: 25, stiffness: 150 };
+  const dx = useSpring(mouseX, springConfig);
+  const dy = useSpring(mouseY, springConfig);
+
+  // Parallax untuk background elements
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+
+  useEffect(() => {
+    setMounted(true);
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX - window.innerWidth / 2);
+      mouseY.set(e.clientY - window.innerHeight / 2);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="relative bg-[#030303] text-white overflow-x-hidden selection:bg-teal-500/30">
+      {/* --- LAYER BACKGROUND IT-THEMED (ENHANCED ANIMATIONS) --- */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        
+        {/* Binary Code Rain Effect */}
+        {mounted && Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={`binary-${i}`}
+            initial={{ 
+              x: (i * (typeof window !== 'undefined' ? window.innerWidth : 1000) / 20),
+              y: -100,
+              opacity: 0
+            }}
+            animate={{ 
+              y: typeof window !== 'undefined' ? window.innerHeight + 100 : 1000,
+              opacity: [0, 0.3, 0.3, 0],
+            }}
+            transition={{ 
+              duration: Math.random() * 10 + 15, 
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "linear"
+            }}
+            className="absolute text-teal-500/30 text-xs font-mono"
+          >
+            {Array.from({ length: 20 }).map((_, j) => (
+              <div key={j} className="leading-tight">
+                {Math.random() > 0.5 ? '1' : '0'}
+              </div>
+            ))}
+          </motion.div>
+        ))}
+
+        {/* Floating Code Brackets & Symbols */}
+        {mounted && ['<', '>', '{', '}', '[', ']', '( )', '< />', '::'].map((symbol, i) => (
+          <motion.div
+            key={`symbol-${i}`}
+            initial={{ 
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000), 
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+              opacity: 0
+            }}
+            animate={{ 
+              y: [0, -30, 0],
+              opacity: [0, 0.2, 0],
+              rotate: [0, 10, -10, 0],
+            }}
+            transition={{ 
+              duration: Math.random() * 8 + 5, 
+              repeat: Infinity,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
+            }}
+            className="absolute text-4xl font-mono text-blue-400/20"
+          >
+            {symbol}
+          </motion.div>
+        ))}
+
+        {/* Circuit Board Lines - Horizontal */}
+        <motion.svg className="absolute inset-0 w-full h-full" style={{ y: y1 }}>
+          <motion.line
+            x1="0" y1="20%" x2="100%" y2="20%"
+            stroke="url(#gradient1)"
+            strokeWidth="1"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: [0, 1, 0], opacity: [0, 0.3, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
+          />
+          <motion.line
+            x1="0" y1="60%" x2="100%" y2="60%"
+            stroke="url(#gradient2)"
+            strokeWidth="1"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: [0, 1, 0], opacity: [0, 0.3, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 2, repeatDelay: 2 }}
+          />
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#14b8a6" stopOpacity="0" />
+              <stop offset="50%" stopColor="#14b8a6" stopOpacity="1" />
+              <stop offset="100%" stopColor="#14b8a6" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0" />
+              <stop offset="50%" stopColor="#3b82f6" stopOpacity="1" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        </motion.svg>
+
+        {/* Data Packets Moving */}
+        {mounted && Array.from({ length: 8 }).map((_, i) => (
+          <motion.div
+            key={`packet-${i}`}
+            initial={{ 
+              x: -50,
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+            }}
+            animate={{ 
+              x: typeof window !== 'undefined' ? window.innerWidth + 50 : 1000,
+            }}
+            transition={{ 
+              duration: Math.random() * 10 + 8, 
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "linear"
+            }}
+            className="absolute w-2 h-2 bg-teal-500/40 rounded-full"
+            style={{
+              boxShadow: '0 0 10px rgba(20, 184, 166, 0.6)'
+            }}
+          />
+        ))}
+
+        {/* Floating Gradient Orbs - IT themed colors */}
+        <motion.div
+          style={{ y: y1 }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute top-20 -left-20 w-[500px] h-[500px] bg-gradient-radial from-blue-600/20 via-blue-500/10 to-transparent rounded-full blur-[100px]"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        
+        <motion.div
+          style={{ y: y2 }}
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.15, 0.3, 0.15],
+          }}
+          transition={{ 
+            duration: 10, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 1 
+          }}
+          className="absolute top-1/3 -right-20 w-[600px] h-[600px] bg-gradient-radial from-cyan-500/20 via-cyan-500/10 to-transparent rounded-full blur-[120px]"
+        />
+
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.35, 0.2],
+            x: [0, 100, 0],
+          }}
+          transition={{ 
+            duration: 15, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 2 
+          }}
+          className="absolute bottom-20 left-1/4 w-[450px] h-[450px] bg-gradient-radial from-teal-500/25 via-teal-500/10 to-transparent rounded-full blur-[100px]"
+        />
+
+        {/* Mouse Follow Glow - Enhanced Blue/Teal */}
+        <motion.div
+          style={{ x: dx, y: dy }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-blue-500/25 via-teal-500/15 to-transparent rounded-full blur-[80px]"
+        />
+
+        {/* Digital Particles (像素點) */}
+        {mounted && Array.from({ length: 30 }).map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            initial={{ 
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000), 
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+              scale: 0,
+              opacity: 0
+            }}
+            animate={{ 
+              scale: [0, 1.5, 0],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{ 
+              duration: Math.random() * 4 + 3, 
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "easeInOut"
+            }}
+            className="absolute w-1 h-1 bg-cyan-400 rounded-sm"
+            style={{
+              boxShadow: '0 0 8px rgba(34, 211, 238, 0.8)'
+            }}
+          />
+        ))}
+
+        {/* Network Nodes Connection */}
+        {mounted && Array.from({ length: 6 }).map((_, i) => (
+          <motion.div
+            key={`node-${i}`}
+            initial={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+            }}
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+            className="absolute w-3 h-3 border-2 border-teal-500/40 rounded-full bg-teal-500/10"
+            style={{
+              boxShadow: '0 0 15px rgba(20, 184, 166, 0.4)'
+            }}
+          />
+        ))}
+
+        {/* Hexagon Tech Patterns */}
+        <motion.div
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-[15%] right-[10%] w-32 h-32 opacity-10"
+          style={{
+            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+            border: '2px solid rgba(20, 184, 166, 0.3)',
+          }}
+        />
+
+        <motion.div
+          animate={{
+            rotate: [360, 0],
+            scale: [1.1, 1, 1.1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute bottom-[20%] left-[15%] w-24 h-24 opacity-10"
+          style={{
+            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+            border: '2px solid rgba(59, 130, 246, 0.3)',
+          }}
+        />
+
+        {/* Terminal Cursor Blink */}
+        <motion.div
+          animate={{
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-10 right-20 w-2 h-6 bg-teal-400"
+        />
+
+        {/* Tekstur Noise halus */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+
+        {/* Vignette Effect */}
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/40"></div>
+      </div>
+
+      {/* --- KONTEN UTAMA --- */}
+      <div className="relative z-10">
+        <Navbar />
+        {/* Berikan pembungkus transparan agar grid di bawahnya terlihat */}
+        <div className="bg-transparent">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Certifications />
+          <Contact />
+          <Footer />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
