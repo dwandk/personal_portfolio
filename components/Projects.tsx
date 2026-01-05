@@ -28,13 +28,11 @@ export default function Projects() {
     >
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          // DIUBAH: mb-6 -> mb-10 (Jarak header ke filter ditambah sedikit)
           className="text-center mb-10"
         >
           <div className="inline-block px-4 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-bold tracking-widest uppercase mb-4">

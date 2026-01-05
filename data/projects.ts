@@ -138,4 +138,18 @@ export const projects = [
     gradient: "from-emerald-500 to-green-600",
     image: "/assets/projects/Dashboard.png",
   },
+  {
+    id: 11,
+    title: "Rempah Rindu",
+    subtitle: "",
+    category: "Web Development",
+    shortDesc:
+      "A restaurant web application that allows customers to browse menus, place orders, and complete payments seamlessly, with an admin panel for managing menu items and orders.",
+    longDesc:
+      "Rempah Rindu is a full-featured restaurant web application designed to streamline the ordering and payment process for customers while providing efficient management tools for administrators. The platform allows users to explore food and beverage menus through a clean and responsive interface, place orders, and complete transactions smoothly.\n\nOn the administrative side, Rempah Rindu includes a dashboard for managing menu items, updating prices, handling availability, and monitoring orders in real time. Built with a focus on usability and performance, the system ensures a seamless experience for both customers and restaurant staff, combining functional design with reliable backend operations.",
+    tools: ["PHP", "Laravel", "MySQL", "Bootstrap"],
+    link: "https://github.com/FathanRasyidi/SIMB.git",
+    gradient: "from-red-500 to-orange-500",
+    image: "/assets/projects/rempah.png",
+  },
 ];
