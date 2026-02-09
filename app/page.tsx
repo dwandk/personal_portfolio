@@ -15,14 +15,14 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll();
   
-  // Logic Mouse Tracking Global
+  
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springConfig = { damping: 25, stiffness: 150 };
   const dx = useSpring(mouseX, springConfig);
   const dy = useSpring(mouseY, springConfig);
 
-  // Parallax untuk background elements
+  //cb pralaxx
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -300]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
@@ -39,10 +39,10 @@ export default function Home() {
 
   return (
     <main className="relative bg-[#030303] text-white overflow-x-hidden selection:bg-teal-500/30">
-      {/* --- LAYER BACKGROUND IT-THEMED (ENHANCED ANIMATIONS) --- */}
+  
       <div className="fixed inset-0 pointer-events-none z-0">
         
-        {/* Binary Code Rain Effect */}
+   
         {mounted && Array.from({ length: 20 }).map((_, i) => (
           <motion.div
             key={`binary-${i}`}
@@ -71,7 +71,7 @@ export default function Home() {
           </motion.div>
         ))}
 
-        {/* Floating Code Brackets & Symbols */}
+
         {mounted && ['<', '>', '{', '}', '[', ']', '( )', '< />', '::'].map((symbol, i) => (
           <motion.div
             key={`symbol-${i}`}
@@ -97,7 +97,7 @@ export default function Home() {
           </motion.div>
         ))}
 
-        {/* Circuit Board Lines - Horizontal */}
+
         <motion.svg className="absolute inset-0 w-full h-full" style={{ y: y1 }}>
           <motion.line
             x1="0" y1="20%" x2="100%" y2="20%"
@@ -129,7 +129,7 @@ export default function Home() {
           </defs>
         </motion.svg>
 
-        {/* Data Packets Moving */}
+       
         {mounted && Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={`packet-${i}`}
@@ -153,7 +153,6 @@ export default function Home() {
           />
         ))}
 
-        {/* Floating Gradient Orbs - IT themed colors */}
         <motion.div
           style={{ y: y1 }}
           animate={{
@@ -198,13 +197,13 @@ export default function Home() {
           className="absolute bottom-20 left-1/4 w-[450px] h-[450px] bg-gradient-radial from-teal-500/25 via-teal-500/10 to-transparent rounded-full blur-[100px]"
         />
 
-        {/* Mouse Follow Glow - Enhanced Blue/Teal */}
+
         <motion.div
           style={{ x: dx, y: dy }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-blue-500/25 via-teal-500/15 to-transparent rounded-full blur-[80px]"
         />
 
-        {/* Digital Particles (像素點) */}
+
         {mounted && Array.from({ length: 30 }).map((_, i) => (
           <motion.div
             key={`particle-${i}`}
@@ -231,7 +230,7 @@ export default function Home() {
           />
         ))}
 
-        {/* Network Nodes Connection */}
+     
         {mounted && Array.from({ length: 6 }).map((_, i) => (
           <motion.div
             key={`node-${i}`}
@@ -255,7 +254,7 @@ export default function Home() {
           />
         ))}
 
-        {/* Hexagon Tech Patterns */}
+     
         <motion.div
           animate={{
             rotate: [0, 360],
@@ -290,7 +289,7 @@ export default function Home() {
           }}
         />
 
-        {/* Terminal Cursor Blink */}
+      
         <motion.div
           animate={{
             opacity: [0, 1, 0],
@@ -303,17 +302,16 @@ export default function Home() {
           className="absolute top-10 right-20 w-2 h-6 bg-teal-400"
         />
 
-        {/* Tekstur Noise halus */}
+   
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
 
-        {/* Vignette Effect */}
+      
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/40"></div>
       </div>
 
       {/* --- KONTEN UTAMA --- */}
       <div className="relative z-10">
         <Navbar />
-        {/* Berikan pembungkus transparan agar grid di bawahnya terlihat */}
         <div className="bg-transparent">
           <Hero />
           <About />

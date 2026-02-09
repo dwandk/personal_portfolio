@@ -45,8 +45,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="py-15 bg-transparent font-montserrat overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 w-full">
-        
-        {/* Header */}
+
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-bold tracking-widest uppercase mb-4">
             Achievements
@@ -56,7 +55,7 @@ export default function Certifications() {
           </h2>
         </div>
 
-        {/* Slider Container */}
+ 
         <div className="relative">
           <Swiper
             modules={[Pagination, Autoplay]}
@@ -65,7 +64,7 @@ export default function Certifications() {
             centeredSlides={false}
             pagination={{ 
               clickable: true,
-              el: '.custom-pagination' // Menggunakan class custom agar mudah diatur posisinya
+              el: '.custom-pagination' 
             }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             breakpoints={{
@@ -78,7 +77,7 @@ export default function Certifications() {
               <SwiperSlide key={i} className="h-auto">
                 <div className="group h-full bg-[#111111]/40 border border-white/5 rounded-[2rem] overflow-hidden backdrop-blur-md hover:border-teal-500/40 transition-all duration-500 flex flex-col hover:shadow-[0_20px_40px_-15px_rgba(20,184,166,0.15)]">
                   
-                  {/* Image Container */}
+              
                   <div className="relative h-44 w-full overflow-hidden">
                     <img 
                       src={cert.image} 
@@ -93,7 +92,7 @@ export default function Certifications() {
                     </div>
                   </div>
 
-                  {/* Body Content */}
+                 
                   <div className="p-7 flex flex-col flex-1">
                     <h3 className="text-lg font-bold text-white mb-2 group-hover:text-teal-400 transition-colors line-clamp-2 leading-tight">
                       {cert.title}
@@ -110,7 +109,7 @@ export default function Certifications() {
             ))}
           </Swiper>
 
-          {/* CUSTOM PAGINATION CONTAINER - Dipastikan Tengah */}
+         
           <div className="custom-pagination flex justify-center items-center gap-2 mt-10 w-full"></div>
         </div>
       </div>

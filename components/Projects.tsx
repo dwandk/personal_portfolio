@@ -46,12 +46,12 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* FILTER - Ukuran tetap besar, jarak bawah ditambah dikit */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          // DIUBAH: mb-8 -> mb-12 (Jarak filter ke grid ditambah sedikit)
+         
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {["All", "UI/UX Design", "Web Development", "Mobile Apps", "Data Analytics"].map((cat) => (
@@ -69,7 +69,7 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* GRID */}
+       
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, i) => (
             <motion.div
@@ -90,7 +90,7 @@ export default function Projects() {
                   transform: flippedCards[project.id] ? "rotateY(180deg)" : "rotateY(0deg)",
                 }}
               >
-                {/* FRONT CARD */}
+              
                 <div
                   className="absolute w-full h-full rounded-3xl bg-white/5 border border-white/10 overflow-hidden backdrop-blur-sm"
                   style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
@@ -132,7 +132,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* BACK CARD */}
+               
                 <div
                   className="absolute w-full h-full rounded-3xl bg-neutral-900 border-2 border-teal-500/30 p-8 flex flex-col backdrop-blur-xl"
                   style={{

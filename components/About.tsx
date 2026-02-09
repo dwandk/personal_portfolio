@@ -12,14 +12,14 @@ export default function About() {
   ];
 
   return (
-    // UBAHAN UTAMA: bg-transparent dan hapus semua div dekorasi background
+
     <section
       id="about"
       className="relative bg-transparent overflow-hidden font-montserrat"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
-          {/* LEFT: Profile Image */}
+         
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -37,7 +37,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* RIGHT: Content */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -76,7 +75,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Skill Tags */}
+           
             <div className="flex flex-wrap gap-3 mt-10">
               {skills.map((skill, i) => (
                 <motion.div

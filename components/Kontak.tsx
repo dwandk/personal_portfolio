@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  // GANTI ID DI BAWAH INI dengan ID yang kamu dapat dari Formspree
+
   const FORMSPREE_ID = "MASUKKAN_ID_KAMU_DISINI"; 
 
   const contactData = [
@@ -70,7 +70,7 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6 items-stretch">
-          {/* KIRI: Info Kontak */}
+         
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -90,21 +90,21 @@ export default function Contact() {
             ))}
           </motion.div>
 
-          {/* KANAN: Form Terhubung ke Formspree */}
+        
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl flex flex-col justify-center"
           >
-            {/* FORM HANDLING */}
+         
             <form action={`https://formspree.io/f/${FORMSPREE_ID}`} method="POST" className="space-y-5">
               <div className="grid md:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">Full Name</label>
                   <input
                     type="text"
-                    name="name" // WAJIB ada atribut name
+                    name="name" 
                     required
                     placeholder="Your Name"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-teal-500/50 transition-all text-sm"
@@ -114,7 +114,7 @@ export default function Contact() {
                   <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">Email Address</label>
                   <input
                     type="email"
-                    name="email" // WAJIB ada atribut name
+                    name="email" 
                     required
                     placeholder="your@example.com"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-teal-500/50 transition-all text-sm"
@@ -135,7 +135,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">Message</label>
                 <textarea
-                  name="message" // WAJIB ada atribut name
+                  name="message" 
                   required
                   rows={4}
                   placeholder="Tell me about your project..."

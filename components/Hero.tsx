@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section className="py-27 relative min-h-screen w-full flex items-center justify-center bg-transparent text-white font-montserrat">
-      {/* CONTENT LAYER */}
+    
       <div className="relative z-10 max-w-5xl px-6 flex flex-col items-center text-center">
-        {/* Floating Badge */}
+      
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Hero Title */}
+      
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export default function Hero() {
           Andika's Portfolio
         </motion.h1>
 
-        {/* Description */}
+       
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -45,7 +45,7 @@ export default function Hero() {
           digital experiences.
         </motion.p>
 
-        {/* CTA Buttons */}
+       
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Social Links */}
+      
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

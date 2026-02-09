@@ -152,4 +152,18 @@ export const projects = [
     gradient: "from-red-500 to-orange-500",
     image: "/assets/projects/rempah.png",
   },
+  {
+  id: 12,
+  title: "Geopark Klaten Web GIS",
+  subtitle: "Interactive Map Platform",
+  category: "Web Development",
+  shortDesc:
+    "An interactive web-based GIS platform that displays geopark locations in Klaten with map visualization and detailed information for each site.",
+  longDesc:
+    "Geopark Klaten Web GIS is an interactive mapping platform designed to visualize and manage geopark locations in Klaten, Central Java. The system provides an intuitive map interface where users can explore various geological sites, view detailed information about each location, and understand the geographical distribution of geopark areas.\n\nThe platform integrates OpenStreetMap with interactive markers and location clustering to enhance usability and performance. Each geopark location includes descriptive information, images, and regional details to support tourism promotion and educational purposes. The system is built with a responsive design to ensure accessibility across devices.",
+  tools: ["React JS", "Leaflet", "OpenStreetMap", "CSS"],
+  link: "https://dwandk.github.io/geopark_klaten/",
+  gradient: "from-blue-500 to-cyan-500",
+  image: "/assets/projects/geo.png",
+},
 ];

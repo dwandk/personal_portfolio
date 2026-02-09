@@ -6,7 +6,7 @@ import { tools } from "@/data/tools";
 
 export default function Skills() {
   return (
-    // UBAHAN: bg-transparent agar menyatu dengan grid page.tsx
+   
     <section
       id="skills"
       className="py-18 md:py-20 bg-transparent font-montserrat"
@@ -21,7 +21,7 @@ export default function Skills() {
           </h2>
         </div>
 
-        {/* Tools Carousel - Dibuat lebih menyatu dengan efek Glass */}
+       
         <div className="relative overflow-hidden mb-10 group">
           <div className="flex gap-6 animate-scroll w-max">
             {[...tools, ...tools].map((tool, i) => (
@@ -45,12 +45,12 @@ export default function Skills() {
               </div>
             ))}
           </div>
-          {/* Gradient Masking agar carousel halus di pinggir */}
+        
           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#030303] to-transparent z-10" />
           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#030303] to-transparent z-10" />
         </div>
 
-        {/* Skill Categories Grid */}
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {skillCategories.map((cat, idx) => (
             <motion.div
@@ -70,7 +70,7 @@ export default function Skills() {
                   {cat.title}
                 </h3>
 
-                {/* Hover Overlay Desktop */}
+               
                 <div className="hidden md:block absolute inset-0 bg-neutral-900/95 backdrop-blur-md p-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
                   <div className="flex flex-col justify-center h-full">
                     <h4 className="font-bold text-teal-400 mb-4 text-center border-b border-white/10 pb-2 text-sm uppercase tracking-widest">
@@ -90,7 +90,7 @@ export default function Skills() {
                   </div>
                 </div>
 
-                {/* Mobile View */}
+                {/* Mobile cuii */}
                 <details className="md:hidden mt-4 w-full text-center">
                   <summary className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest list-none cursor-pointer">
                     Tap to expand

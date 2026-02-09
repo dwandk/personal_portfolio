@@ -20,17 +20,17 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Efek Background Scrolled
+     
       setScrolled(window.scrollY > 50);
 
-      // 2. Logika Active Section saat Scroll
+   
       const sections = navItems.map(item => item.href.substring(1));
       let currentSection = "";
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop - 100; // Offset agar ganti sebelum benar-benar di atas
+          const offsetTop = element.offsetTop - 100; 
           if (window.scrollY >= offsetTop) {
             currentSection = `#${section}`;
           }
@@ -56,12 +56,12 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
         
-        {/* LOGO */}
+       
         <a href="#" className="text-2xl md:text-3xl font-black tracking-tighter text-white group">
           ANDIKA <span className="text-teal-400">PORTFOLIO</span>
         </a>
 
-        {/* DESKTOP MENU */}
+       
         <div className="hidden md:flex items-center gap-2">
           {navItems.map((item) => {
             const isActive = activeSection === item.href;
@@ -76,7 +76,7 @@ export default function Navbar() {
               >
                 <span className="relative z-10">{item.name}</span>
                 
-                {/* Active Indicator (Garis bawah permanen saat aktif) */}
+              
                 {isActive && (
                   <motion.span 
                     layoutId="activeNav"
@@ -85,7 +85,7 @@ export default function Navbar() {
                   />
                 )}
                 
-                {/* Hover Line (Hanya muncul jika tidak aktif) */}
+                
                 {!isActive && (
                   <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white/40 transition-all duration-300 group-hover:w-1/2 group-hover:left-1/4" />
                 )}
@@ -94,7 +94,7 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* MOBILE BUTTON */}
+      
         <button 
           onClick={() => setOpen(!open)} 
           className="md:hidden w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white"
@@ -103,7 +103,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
       <AnimatePresence>
         {open && (
           <motion.div
