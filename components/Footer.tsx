@@ -1,58 +1,81 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Github, Linkedin, Instagram, ArrowUp } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="relative bg-transparent pt-20 pb-10 overflow-hidden font-montserrat">
-    
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-          
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-black tracking-tighter text-white">
-              ANDIKA <span className="text-teal-400">DWI PRASETYA</span>
-            </h3>
-            <p className="mt-2 text-sm text-neutral-500 leading-relaxed max-w-xs mx-auto md:mx-0">
-              Building digital experiences that balance aesthetics and performance.
+    <footer className="bg-slate-200 dark:bg-[#0A0B0D] text-black dark:text-white border-t border-black/10 dark:border-white/10 pt-14 pb-8 font-sans transition-colors duration-500">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start pb-10 border-b border-black/10 dark:border-white/10">
+          {/* Brand */}
+          <div>
+            <a href="#hero" className="inline-flex items-center gap-2 mb-3 group">
+              <span className="w-8 h-8 rounded-full bg-black text-white dark:bg-white dark:text-black font-extrabold text-sm flex items-center justify-center shadow-sm">
+                A
+              </span>
+              <span className="font-extrabold text-lg tracking-wider text-black dark:text-white">
+                ANDIKA<span className="text-slate-500 dark:text-slate-400">.DEV</span>
+              </span>
+            </a>
+            <p className="text-xs font-medium text-slate-600 dark:text-slate-400 leading-relaxed max-w-[260px]">
+              Information Systems Student &amp; Digital Creator crafting clean, functional, and impactful digital experiences.
             </p>
           </div>
 
-          
-          <div className="flex justify-center gap-8 text-xs font-bold uppercase tracking-widest text-neutral-400">
-            <a href="#about" className="hover:text-teal-400 transition-colors">About</a>
-            <a href="#projects" className="hover:text-teal-400 transition-colors">Projects</a>
-            <a href="#certifications" className="hover:text-teal-400 transition-colors">Contact</a>
+          {/* Quick links */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:pt-2">
+            {[
+              { name: "Work", href: "#projects" },
+              { name: "What I Can Do", href: "#skills" },
+              { name: "About", href: "#about" },
+              { name: "Gallery", href: "#gallery" },
+              { name: "Awards", href: "#certifications" },
+              { name: "Contact", href: "#contact" },
+            ].map(({ name, href }) => (
+              <a
+                key={name}
+                href={href}
+                className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white transition-colors"
+              >
+                {name}
+              </a>
+            ))}
           </div>
 
-          <div className="flex justify-center md:justify-end gap-4">
+          {/* Social + back to top */}
+          <div className="flex justify-end items-center gap-2.5">
             {[
-              { label: "LI", href: "https://www.linkedin.com/in/andika-dwi-prasetya-4b70482b4", name: "LinkedIn" },
-              { label: "GH", href: "https://github.com/dwandk", name: "GitHub" },
-              { label: "IG", href: "https://instagram.com/andikaprsty__", name: "Instagram" },
-            ].map((social) => (
+              { label: "GitHub", href: "https://github.com/dwandk", Icon: Github },
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/andika-dwi-prasetya-4b70482b4", Icon: Linkedin },
+              { label: "Instagram", href: "https://instagram.com/andikaprsty__", Icon: Instagram },
+            ].map(({ label, href, Icon }) => (
               <motion.a
-                key={social.label}
-                href={social.href}
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold text-neutral-400 hover:border-teal-500/50 hover:text-teal-400 transition-all"
-                title={social.name}
+                className="w-9 h-9 rounded-full bg-white dark:bg-[#18191E] border border-black/10 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white transition-all shadow-xs"
+                title={label}
               >
-                {social.label}
+                <Icon size={16} />
               </motion.a>
             ))}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="w-9 h-9 rounded-full bg-black text-white dark:bg-white dark:text-black flex items-center justify-center shadow-md hover:opacity-80 transition-opacity ml-1"
+              title="Back to top"
+            >
+              <ArrowUp size={16} />
+            </button>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-medium text-neutral-600 uppercase tracking-[0.2em]">
-          <p>© {currentYear} All rights reserved.</p>
-          <div className="flex gap-6">
-            <span>Designed by Andika</span>
-          </div>
+        {/* Bottom bar */}
+        <div className="pt-7 flex flex-col sm:flex-row justify-between items-center gap-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+          <p>© {new Date().getFullYear()} Andika Dwi Prasetya. All rights reserved.</p>
+          <p>UPN "Veteran" Yogyakarta</p>
         </div>
       </div>
     </footer>

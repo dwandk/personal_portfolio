@@ -1,158 +1,144 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Mail, Phone, Linkedin, Instagram, Send, ArrowUpRight } from "lucide-react";
+import TypewriterTitle from "./TypewriterTitle";
+import { SectionBackdrop, FloatingCodeParticles, CursorGlow, DotGridOverlay, TerminalLabel } from "./SectionDecorations";
+
+const FORMSPREE_ID = "mzebzpbe";
+
+const contactLinks = [
+  { label: "Email",     value: "andikaprsty24@gmail.com",   href: "mailto:andikaprsty24@gmail.com",                              Icon: Mail },
+  { label: "WhatsApp",  value: "+62-856-0331-5076",          href: "https://wa.me/6285603315076",                                 Icon: Phone },
+  { label: "LinkedIn",  value: "Andika Dwi Prasetya",        href: "https://www.linkedin.com/in/andika-dwi-prasetya-4b70482b4",  Icon: Linkedin },
+  { label: "Instagram", value: "@andikaprsty__",             href: "https://instagram.com/andikaprsty__",                        Icon: Instagram },
+];
 
 export default function Contact() {
-
-  const FORMSPREE_ID = "MASUKKAN_ID_KAMU_DISINI"; 
-
-  const contactData = [
-    {
-      label: "Email",
-      value: "andikaprsty24@gmail.com",
-      link: "mailto:andikaprsty24@gmail.com",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-          <rect width="20" height="16" x="2" y="4" rx="2" />
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-        </svg>
-      ),
-    },
-    {
-      label: "Whatsapp",
-      value: "+62-856-0331-5076",
-      link: "https://wa.me/6285603315076",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-      ),
-    },
-    {
-      label: "LinkedIn",
-      value: "Andika Dwi Prasetya",
-      link: "https://www.linkedin.com/in/andika-dwi-prasetya-4b70482b4",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-          <rect width="4" height="12" x="2" y="9" />
-          <circle cx="4" cy="4" r="2" />
-        </svg>
-      ),
-    },
-    {
-      label: "Instagram",
-      value: "@andikaprsty__",
-      link: "https://instagram.com/andikaprsty__",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-        </svg>
-      ),
-    },
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-transparent text-white relative overflow-hidden font-montserrat">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-bold tracking-widest uppercase mb-4">
-            Get In Touch
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-            Let's Work <span className="text-teal-400">Together</span>
+    <section id="contact" className="relative bg-[#F3F3F5] dark:bg-[#0E0F12] text-[#121316] dark:text-white py-12 sm:py-16 px-6 transition-colors duration-500 overflow-hidden">
+      <DotGridOverlay />
+      <CursorGlow />
+      <FloatingCodeParticles count={6} />
+      <SectionBackdrop label="CONTACT" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.25 }}
+        transition={{ duration: 1.0, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="relative z-10 max-w-5xl mx-auto"
+      >
+        
+        {/* Header */}
+        <div className="mb-8">
+          <TerminalLabel path="~/portfolio/contact.tsx" />
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-none mb-3 min-h-[45px]">
+            <TypewriterTitle text="LET'S WORK TOGETHER." />
           </h2>
-          <p className="mt-4 text-neutral-400 max-w-xl mx-auto leading-relaxed text-sm">
-            Have an interesting idea? Let’s collaborate and create something impactful together.
+          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-lg">
+            Have a project, collaboration idea, or role opportunity? Send a message and let's turn your vision into reality.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 items-stretch">
-         
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="grid grid-rows-4 gap-4"
-          >
-            {contactData.map((item, i) => (
-              <a key={i} href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-5 rounded-[1.5rem] bg-white/5 border border-white/10 hover:border-teal-500/40 hover:bg-white/10 transition-all group">
-                <div className="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 group-hover:bg-teal-500 group-hover:text-black transition-all shrink-0">
-                  {item.icon}
+        {/* 2-Column Equal Height Grid */}
+        <div className="grid lg:grid-cols-12 gap-6 items-stretch">
+          
+          {/* Left Column: Contact Links (Flex-1 to equal form height) */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-3">
+            {contactLinks.map(({ label, value, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-between px-4 py-3 sm:py-3.5 rounded-2xl bg-white dark:bg-[#14151A] border border-black/10 dark:border-white/10 group hover:border-black/30 dark:hover:border-white/30 transition-all shadow-xs"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-[#1E1F26] flex items-center justify-center text-slate-700 dark:text-slate-300 shrink-0">
+                    <Icon size={16} />
+                  </div>
+                  <div className="overflow-hidden">
+                    <p className="font-mono text-[8px] tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-0.5">{label}</p>
+                    <p className="font-bold text-xs sm:text-sm text-black dark:text-white truncate">{value}</p>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">{item.label}</p>
-                  <p className="text-white font-medium group-hover:text-teal-400 transition-colors truncate">{item.value}</p>
-                </div>
+                <ArrowUpRight size={16} className="text-slate-400 group-hover:text-black dark:group-hover:text-white transition-colors shrink-0 ml-2" />
               </a>
             ))}
-          </motion.div>
+          </div>
 
-        
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl flex flex-col justify-center"
-          >
-         
-            <form action={`https://formspree.io/f/${FORMSPREE_ID}`} method="POST" className="space-y-5">
-              <div className="grid md:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">Full Name</label>
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7">
+            <form
+              action={`https://formspree.io/f/${FORMSPREE_ID}`}
+              method="POST"
+              className="bg-white dark:bg-[#14151A] border border-black/10 dark:border-white/10 rounded-2xl p-5 sm:p-6 space-y-3.5 shadow-sm h-full flex flex-col justify-between"
+            >
+              <div className="grid sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label className="block font-mono text-[8px] tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-1">
+                    Full Name
+                  </label>
                   <input
                     type="text"
-                    name="name" 
+                    name="name"
                     required
                     placeholder="Your Name"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-teal-500/50 transition-all text-sm"
+                    className="w-full bg-slate-100 dark:bg-[#1E1F26] border border-black/5 dark:border-white/5 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-black dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">Email Address</label>
+                <div>
+                  <label className="block font-mono text-[8px] tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-1">
+                    Email Address
+                  </label>
                   <input
                     type="email"
-                    name="email" 
+                    name="email"
                     required
                     placeholder="your@example.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-teal-500/50 transition-all text-sm"
+                    className="w-full bg-slate-100 dark:bg-[#1E1F26] border border-black/5 dark:border-white/5 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-black dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">Subject</label>
+              <div>
+                <label className="block font-mono text-[8px] tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-1">
+                  Subject
+                </label>
                 <input
                   type="text"
                   name="subject"
-                  placeholder="Project Inquiry"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-teal-500/50 transition-all text-sm"
+                  placeholder="Project Inquiry / Job Opportunity"
+                  className="w-full bg-slate-100 dark:bg-[#1E1F26] border border-black/5 dark:border-white/5 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-black dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">Message</label>
+              <div>
+                <label className="block font-mono text-[8px] tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-1">
+                  Message
+                </label>
                 <textarea
-                  name="message" 
+                  name="message"
                   required
-                  rows={4}
-                  placeholder="Tell me about your project..."
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-teal-500/50 transition-all text-sm resize-none"
-                ></textarea>
+                  rows={3}
+                  placeholder="Tell me about your project or questions..."
+                  className="w-full bg-slate-100 dark:bg-[#1E1F26] border border-black/5 dark:border-white/5 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-black dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors resize-none"
+                />
               </div>
 
-              <button 
-                type="submit" 
-                className="w-full py-4 mt-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-teal-500/20 active:scale-[0.98]"
+              <button
+                type="submit"
+                className="w-full py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-bold text-xs sm:text-sm flex items-center justify-center gap-2 hover:opacity-80 transition-all shadow-xs cursor-pointer"
               >
-                Send Message
+                Send Message <Send size={14} />
               </button>
             </form>
-          </motion.div>
+          </div>
+
         </div>
-      </div>
+
+      </motion.div>
     </section>
   );
 }

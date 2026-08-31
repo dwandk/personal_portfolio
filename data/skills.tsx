@@ -8,11 +8,11 @@ export const skillCategories: {
   {
     title: "UI/UX Design",
     icon: (
-      <svg className="w-8 h-8 text-teal-400" viewBox="0 0 24 24" fill="none">
+      <svg className="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none">
         <path
           d="M12 2L2 7L12 12L22 7L12 2Z"
           fill="currentColor"
-          opacity="0.3"
+          opacity="0.25"
         />
         <path
           d="M2 17L12 22L22 17M2 12L12 17L22 12"
@@ -33,7 +33,7 @@ export const skillCategories: {
   {
     title: "Web Development",
     icon: (
-      <svg className="w-8 h-8 text-teal-400" viewBox="0 0 24 24" fill="none">
+      <svg className="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none">
         <path
           d="M16 18L22 12L16 6M8 6L2 12L8 18"
           stroke="currentColor"
@@ -54,7 +54,7 @@ export const skillCategories: {
   {
     title: "Computer Networks",
     icon: (
-      <svg className="w-8 h-8 text-teal-400" viewBox="0 0 24 24" fill="none">
+      <svg className="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
         <path
           d="M2 12H22M12 2C14.5 4.5 16 8 16 12C16 16 14.5 19.5 12 22C9.5 19.5 8 16 8 12C8 8 9.5 4.5 12 2Z"
@@ -73,7 +73,7 @@ export const skillCategories: {
   {
     title: "Data Analysis",
     icon: (
-      <svg className="w-8 h-8 text-teal-400" viewBox="0 0 24 24" fill="none">
+      <svg className="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none">
         <rect
           x="3"
           y="3"
@@ -109,7 +109,7 @@ export const skillCategories: {
   {
     title: "System Analyst",
     icon: (
-      <svg className="w-8 h-8 text-teal-400" viewBox="0 0 24 24" fill="none">
+      <svg className="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none">
         <rect
           x="3"
           y="4"
