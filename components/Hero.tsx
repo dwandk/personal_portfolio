@@ -7,10 +7,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] bg-[#F8F9FA] dark:bg-[#0E0F12] text-[#121316] dark:text-white transition-colors duration-500 overflow-hidden flex flex-col justify-between pt-16 sm:pt-20 pb-8 sm:pb-12 px-6"
+      className="relative min-h-[92vh] bg-[#F8F9FA] dark:bg-[#0E0F12] text-[#121316] dark:text-white transition-colors duration-500 overflow-hidden flex flex-col justify-between pt-20 sm:pt-22 lg:pt-24 pb-8 sm:pb-12 px-6"
     >
       {/* Background 2-Row Animated Name Marquee */}
-      <div className="absolute top-14 sm:top-16 left-0 right-0 overflow-hidden select-none pointer-events-none z-0 space-y-0.5 opacity-90">
+      <div className="absolute top-16 sm:top-18 lg:top-20 left-0 right-0 overflow-hidden select-none pointer-events-none z-0 space-y-0.5 opacity-90">
         
         {/* ROW 1: ANDIKA DWI PRASETYA (Moving Left) */}
         <motion.div
@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Main 3-Column Sejajar Layout (Left & Right elements raised higher) */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 grid grid-cols-1 md:grid-cols-12 gap-6 items-end pt-20 sm:pt-24 pb-4 sm:pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 grid grid-cols-1 md:grid-cols-12 gap-6 items-end pt-20 sm:pt-22 lg:pt-24 pb-4 sm:pb-8">
         
         {/* LEFT COLUMN: Role, Bio & Location Pill (Raised Up with pb-12 sm:pb-16) */}
         <div className="md:col-span-4 lg:col-span-4 space-y-4 pb-12 sm:pb-16 lg:pb-20 z-20">

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Instagram, ArrowUp } from "lucide-react";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   return (
@@ -10,12 +11,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start pb-10 border-b border-black/10 dark:border-white/10">
           {/* Brand */}
           <div>
-            <a href="#hero" className="inline-flex items-center gap-2 mb-3 group">
-              <span className="w-8 h-8 rounded-full bg-black text-white dark:bg-white dark:text-black font-extrabold text-sm flex items-center justify-center shadow-sm">
-                A
-              </span>
-              <span className="font-extrabold text-lg tracking-wider text-black dark:text-white">
-                ANDIKA<span className="text-slate-500 dark:text-slate-400">.DEV</span>
+            <a href="#hero" className="inline-flex items-center gap-2.5 mb-3 group">
+              <div className="flex items-center justify-center text-black dark:text-white group-hover:scale-105 transition-transform duration-200">
+                <Logo className="w-7 h-7 sm:w-8 sm:h-8" />
+              </div>
+              <span className="font-sans font-black text-xl tracking-wider text-black dark:text-white">
+                ANDIKA<span className="text-slate-500 dark:text-slate-400 font-bold text-sm">.DEV</span>
               </span>
             </a>
             <p className="text-xs font-medium text-slate-600 dark:text-slate-400 leading-relaxed max-w-[260px]">
@@ -27,7 +28,7 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:pt-2">
             {[
               { name: "Work", href: "#projects" },
-              { name: "What I Can Do", href: "#skills" },
+              { name: "Skills", href: "#skills" },
               { name: "About", href: "#about" },
               { name: "Gallery", href: "#gallery" },
               { name: "Awards", href: "#certifications" },

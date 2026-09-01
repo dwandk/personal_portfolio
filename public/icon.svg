@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="128" fill="#0E0F12"/>
+  <g fill="#FFFFFF" transform="translate(6, 6) scale(0.976)">
+    {/* Letter A */}
+    <path d="M 180 50 L 202 50 L 290 450 L 242 450 L 216 335 L 116 335 L 90 450 L 42 450 Z M 127 288 L 205 288 L 166 112 Z"/>
+    {/* Letter D interlocked with A */}
+    <path d="M 205 160 L 340 160 C 425 160, 475 210, 475 305 C 475 400, 425 450, 340 450 L 260 450 L 260 260 L 306 260 L 306 404 L 340 404 C 398 404, 429 370, 429 305 C 429 240, 398 206, 340 206 L 225 206 Z"/>
+  </g>
+</svg>

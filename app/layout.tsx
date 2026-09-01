@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     "Information Systems Student specializing in UI/UX Design, Web Development, Computer Networks, and Data Analysis at UPN \"Veteran\" Yogyakarta.",
   keywords: ["portfolio", "UI/UX design", "web development", "information systems", "Andika Dwi Prasetya"],
   authors: [{ name: "Andika Dwi Prasetya" }],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
