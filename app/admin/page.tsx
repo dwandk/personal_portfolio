@@ -377,6 +377,16 @@ function ProjectsManager({ showToast }: { showToast: (msg: string, type?: "succe
       year: "2025",
       short_desc: "",
       long_desc: "",
+      overview: "",
+      problem: "",
+      research: "",
+      process: "",
+      solution: "",
+      result: "",
+      lessons_learned: "",
+      key_features: [],
+      timeline: "",
+      team_size: "",
       gradient: "from-blue-500 to-cyan-500",
       thumbnail: "/assets/projects/calmora.png",
       featured: true,
@@ -553,55 +563,192 @@ function ProjectsManager({ showToast }: { showToast: (msg: string, type?: "succe
                 />
               </div>
 
-              <div>
-                <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Full Detailed Description</label>
-                <textarea
-                  rows={4}
-                  value={editing.long_desc || ""}
-                  onChange={(e) => setEditing({ ...editing, long_desc: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
-                />
+              {/* ── CASE STUDY SECTIONS ───────────── */}
+              <div className="pt-2 border-t border-black/5 dark:border-white/5">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-4">Case Study Sections</p>
+                <div className="space-y-4">
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Overview — Ringkasan Project</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Ringkasan singkat tentang project ini..."
+                      value={editing.overview || ""}
+                      onChange={(e) => setEditing({ ...editing, overview: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Problem — Masalah yang Ditemukan</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Problem statement yang melatarbelakangi project ini..."
+                      value={editing.problem || ""}
+                      onChange={(e) => setEditing({ ...editing, problem: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Research — Metode & Temuan</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Metode riset yang digunakan dan temuan utama..."
+                      value={editing.research || ""}
+                      onChange={(e) => setEditing({ ...editing, research: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Process — Alur Pengerjaan</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Alur pengerjaan, tahapan, metodologi yang digunakan..."
+                      value={editing.process || ""}
+                      onChange={(e) => setEditing({ ...editing, process: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Solution — Solusi / Desain yang Dibuat</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Solusi atau desain yang dihasilkan dari project ini..."
+                      value={editing.solution || ""}
+                      onChange={(e) => setEditing({ ...editing, solution: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Result — Hasil / Pencapaian</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Metric, outcome, atau pencapaian dari project ini..."
+                      value={editing.result || ""}
+                      onChange={(e) => setEditing({ ...editing, result: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Lessons Learned — Pembelajaran</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Apa yang dipelajari selama mengerjakan project ini..."
+                      value={editing.lessons_learned || ""}
+                      onChange={(e) => setEditing({ ...editing, lessons_learned: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs leading-relaxed"
+                    />
+                  </div>
+
+                </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Tools (Comma Separated)</label>
-                  <input
-                    type="text"
-                    value={Array.isArray(editing.tools) ? editing.tools.join(", ") : ""}
-                    onChange={(e) => setEditing({ ...editing, tools: e.target.value.split(",").map((s) => s.trim()) })}
-                    className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
-                  />
-                </div>
-                <div>
-                  <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Figma URL</label>
-                  <input
-                    type="text"
-                    value={editing.figma_url || ""}
-                    onChange={(e) => setEditing({ ...editing, figma_url: e.target.value })}
-                    className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
-                  />
+              {/* ── PROJECT META ───────────────────── */}
+              <div className="pt-2 border-t border-black/5 dark:border-white/5">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-4">Project Meta</p>
+                <div className="space-y-4">
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Key Features (Comma Separated)</label>
+                    <input
+                      type="text"
+                      placeholder="Feature 1, Feature 2, Feature 3"
+                      value={Array.isArray(editing.key_features) ? editing.key_features.join(", ") : ""}
+                      onChange={(e) => setEditing({ ...editing, key_features: e.target.value.split(",").map((s: string) => s.trim()).filter(Boolean) })}
+                      className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs"
+                    />
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Timeline (e.g. Jan–Mar 2025)</label>
+                      <input
+                        type="text"
+                        placeholder="3 Months / Jan–Mar 2025"
+                        value={editing.timeline || ""}
+                        onChange={(e) => setEditing({ ...editing, timeline: e.target.value })}
+                        className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Team Size (e.g. Solo / 3 Members)</label>
+                      <input
+                        type="text"
+                        placeholder="Solo / 3 Members"
+                        value={editing.team_size || ""}
+                        onChange={(e) => setEditing({ ...editing, team_size: e.target.value })}
+                        className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Technologies / Tools (Comma Separated)</label>
+                    <input
+                      type="text"
+                      value={Array.isArray(editing.tools) ? editing.tools.join(", ") : ""}
+                      onChange={(e) => setEditing({ ...editing, tools: e.target.value.split(",").map((s: string) => s.trim()).filter(Boolean) })}
+                      className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
+                    />
+                  </div>
+
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Live Project URL</label>
-                  <input
-                    type="text"
-                    value={editing.live_url || ""}
-                    onChange={(e) => setEditing({ ...editing, live_url: e.target.value })}
-                    className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
-                  />
-                </div>
-                <div>
-                  <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">GitHub URL</label>
-                  <input
-                    type="text"
-                    value={editing.github_url || ""}
-                    onChange={(e) => setEditing({ ...editing, github_url: e.target.value })}
-                    className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
-                  />
+              {/* ── LINKS ──────────────────────────── */}
+              <div className="pt-2 border-t border-black/5 dark:border-white/5">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-4">Links</p>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Live Demo URL</label>
+                    <input
+                      type="text"
+                      value={editing.live_url || ""}
+                      onChange={(e) => setEditing({ ...editing, live_url: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Figma URL</label>
+                    <input
+                      type="text"
+                      value={editing.figma_url || ""}
+                      onChange={(e) => setEditing({ ...editing, figma_url: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">GitHub URL</label>
+                    <input
+                      type="text"
+                      value={editing.github_url || ""}
+                      onChange={(e) => setEditing({ ...editing, github_url: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Documentation URL</label>
+                    <input
+                      type="text"
+                      value={editing.documentation_url || ""}
+                      onChange={(e) => setEditing({ ...editing, documentation_url: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-mono text-[10px] font-bold uppercase text-slate-500 mb-1">Prototype URL</label>
+                    <input
+                      type="text"
+                      value={editing.prototype_url || ""}
+                      onChange={(e) => setEditing({ ...editing, prototype_url: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-slate-50 dark:bg-[#18191E] text-xs font-mono"
+                    />
+                  </div>
                 </div>
               </div>
 
